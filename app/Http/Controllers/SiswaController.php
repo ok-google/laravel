@@ -26,7 +26,7 @@ class SiswaController extends Controller
       Siswa::create([
         'nis' => request('nis'),
         'nama' => request('nama'),
-        'tanggal_lahir' => request('tanggal_lahir'),
+        'tanggal_lahir' => date('Y-m-d', strtotime(request('tanggal_lahir'))),
         'email' => request('email')
       ]);
 
@@ -44,7 +44,7 @@ class SiswaController extends Controller
     {
       $dataSiswa = Siswa::where('nis', $nis)->update([
         'nama' => request('nama'),
-        'tanggal_lahir' => request('tanggal_lahir'),
+        'tanggal_lahir' => date('Y-m-d', strtotime(request('tanggal_lahir'))),
         'email' => request('email')
       ]);
 
